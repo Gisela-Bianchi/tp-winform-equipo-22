@@ -39,14 +39,14 @@
             this.dgvArticulos.Name = "dgvArticulos";
             this.dgvArticulos.RowHeadersWidth = 51;
             this.dgvArticulos.RowTemplate.Height = 24;
-            this.dgvArticulos.Size = new System.Drawing.Size(707, 260);
+            this.dgvArticulos.Size = new System.Drawing.Size(1188, 260);
             this.dgvArticulos.TabIndex = 0;
             // 
             // frmArticulos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1288, 450);
             this.Controls.Add(this.dgvArticulos);
             this.Name = "frmArticulos";
             this.Text = "Articulos";

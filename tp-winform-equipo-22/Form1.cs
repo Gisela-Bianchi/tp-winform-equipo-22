@@ -21,6 +21,9 @@ namespace tp_winform_equipo_22
         {
             ArticuloNegocio negocio = new ArticuloNegocio();
             dgvArticulos.DataSource = negocio.listar();
+            CategoriaNegocio categoria= new CategoriaNegocio();
+            dgvArticulos.DataSource = categoria.listarCategorias();
+            
         }
     }
 }

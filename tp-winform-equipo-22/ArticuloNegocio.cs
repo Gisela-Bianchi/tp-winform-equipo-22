@@ -39,6 +39,7 @@ namespace tp_winform_equipo_22
                 }
                 conexion.Close();
                 return lista;
+                
             }
             catch (Exception ex)
           
@@ -46,6 +47,7 @@ namespace tp_winform_equipo_22
                 throw ex;
             }
             
-        } 
+        }
+        
     }
 }
