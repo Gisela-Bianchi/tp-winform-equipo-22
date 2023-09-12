@@ -18,7 +18,7 @@ namespace tp_winform_equipo_22
 
             try
             {
-                conexion.ConnectionString = "server=.\\SQLEXPRESS;database=CATALOGO_P3_DB;integrated security=true";
+                conexion.ConnectionString = "server=:\\SQLEXPRESS;database=CATALOGO_P3_DB;integrated security = true";
                 comando.CommandType=System.Data.CommandType.Text;
                 comando.CommandText = "select Id, Codigo, Nombre, Descripcion, Precio from ARTICULOS";
                 comando.Connection= conexion;
@@ -34,7 +34,9 @@ namespace tp_winform_equipo_22
                     aux.Nombre = (string)lector["Nombre"];
                     aux.Descripcion = (string)lector["Descripcion"];
                     aux.Precio = (decimal)lector["Precio"];
-
+                    aux.Marca = new Marca();
+                    aux.Marca.Descripcion = (string)lector["Marca"];
+                    
                     lista.Add(aux);
                 }
                 conexion.Close();

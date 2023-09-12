@@ -16,6 +16,7 @@ namespace tp_winform_equipo_22
         //public int IdMarca { get;set;}  
        public int IdCategoria { get;set;} 
         public decimal Precio {get;set;}
+        public Marca Marca { get;set;}  
 
         
 

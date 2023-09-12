@@ -18,7 +18,7 @@ namespace tp_winform_equipo_22
 
             try
             {
-                conexion.ConnectionString = "server=.\\SQLEXPRESS;database=CATALOGO_P3_DB;integrated security=true";
+                conexion.ConnectionString = "server=:\\SQLEXPRESS;database=CATALOGO_P3_DB;integrated security = true";
                 comando.CommandType = System.Data.CommandType.Text;
                 comando.CommandText = "select Id, Descripcion from CATEGORIAS";
                 comando.Connection = conexion;
