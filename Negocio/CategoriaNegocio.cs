@@ -4,10 +4,12 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Dominio;
+using Negocio;
 
-namespace tp_winform_equipo_22
+namespace Negocio
 {
-    internal class CategoriaNegocio
+    public class CategoriaNegocio
     {
         public List<Categoria> listarCategorias()
         {

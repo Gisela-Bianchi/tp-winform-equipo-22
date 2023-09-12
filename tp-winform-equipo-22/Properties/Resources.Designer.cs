@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace tp_winform_equipo_22.Properties
+namespace Dominio.Properties
 {
 
 

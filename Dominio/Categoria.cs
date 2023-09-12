@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace tp_winform_equipo_22
+namespace Dominio
 {
-    internal class Categoria: Articulo
+   public class Categoria: Articulo
     {
      public string Descripcion_cat{ get; set; }
     }
