@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Dominio;
 using Negocio;
 
 
@@ -14,6 +15,7 @@ namespace tp_winform_equipo_22
 {
     public partial class frmArticulos : Form
     {
+        private List<Articulo> ListaArticulo;
         public frmArticulos()
         {
             InitializeComponent();
@@ -22,10 +24,11 @@ namespace tp_winform_equipo_22
         private void frmArticulos_Load(object sender, EventArgs e)
         {
             ArticuloNegocio negocio = new ArticuloNegocio();
-            dgvArticulos.DataSource = negocio.listar();
-            CategoriaNegocio categoria= new CategoriaNegocio();
-            dgvArticulos.DataSource = categoria.listarCategorias();
-            
+            //dgvArticulos.DataSource = negocio.listar();
+            ListaArticulo = negocio.listar();
+            dgvArticulos.DataSource = ListaArticulo;
+
+
         }
     }
 }

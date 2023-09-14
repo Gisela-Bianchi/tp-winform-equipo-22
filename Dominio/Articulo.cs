@@ -6,17 +6,18 @@ using System.Threading.Tasks;
 
 namespace Dominio
 { 
-    public class Articulo
+     public class Articulo
     {
         public int Id {get;set;}
         public string Codigo { get;set;}
         public string Nombre { get;set;}  
-        public string Descripcion { get;set;} 
-
-        //public int IdMarca { get;set;}  
-       public int IdCategoria { get;set;} 
+        public string Descripcion { get;set;}
+ 
+        public Categoria Tipo { get; set; }
         public decimal Precio {get;set;}
         public Marca Marca { get;set;}  
+        public string UrlImagen { get;set;}
+
 
         
 
