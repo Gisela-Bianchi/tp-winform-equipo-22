@@ -27,8 +27,25 @@ namespace tp_winform_equipo_22
             //dgvArticulos.DataSource = negocio.listar();
             ListaArticulo = negocio.listar();
             dgvArticulos.DataSource = ListaArticulo;
+            BoxArticulos.Load(ListaArticulo[0].ImagenUrl);
 
 
+        }
+
+        private void dgvArticulos_SelectionChanged(object sender, EventArgs e)
+        {
+            Articulo Seleccionado = (Articulo)dgvArticulos.CurrentRow.DataBoundItem;
+            CargarImagen(Seleccionado.ImagenUrl);
+
+        }
+        private void CargarImagen(string URL)
+        {
+            try { BoxArticulos.Load(URL); }
+
+            catch (Exception )
+            {
+                BoxArticulos.Load("https://img.freepik.com/vector-gratis/ilustracion-vectorial-diseno-grafico_24908-54512.jpg?w=2000");
+            }
         }
     }
 }

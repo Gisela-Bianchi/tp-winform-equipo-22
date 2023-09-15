@@ -29,29 +29,43 @@
         private void InitializeComponent()
         {
             this.dgvArticulos = new System.Windows.Forms.DataGridView();
+            this.BoxArticulos = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvArticulos)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BoxArticulos)).BeginInit();
             this.SuspendLayout();
             // 
             // dgvArticulos
             // 
             this.dgvArticulos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvArticulos.Location = new System.Drawing.Point(32, 143);
+            this.dgvArticulos.Location = new System.Drawing.Point(32, 74);
             this.dgvArticulos.Name = "dgvArticulos";
             this.dgvArticulos.RowHeadersWidth = 51;
             this.dgvArticulos.RowTemplate.Height = 24;
-            this.dgvArticulos.Size = new System.Drawing.Size(1188, 260);
+            this.dgvArticulos.Size = new System.Drawing.Size(862, 350);
             this.dgvArticulos.TabIndex = 0;
+            this.dgvArticulos.SelectionChanged += new System.EventHandler(this.dgvArticulos_SelectionChanged);
+            // 
+            // BoxArticulos
+            // 
+            this.BoxArticulos.Location = new System.Drawing.Point(916, 74);
+            this.BoxArticulos.Name = "BoxArticulos";
+            this.BoxArticulos.Size = new System.Drawing.Size(332, 350);
+            this.BoxArticulos.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.BoxArticulos.TabIndex = 1;
+            this.BoxArticulos.TabStop = false;
             // 
             // frmArticulos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1288, 450);
+            this.Controls.Add(this.BoxArticulos);
             this.Controls.Add(this.dgvArticulos);
             this.Name = "frmArticulos";
             this.Text = "Articulos";
             this.Load += new System.EventHandler(this.frmArticulos_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvArticulos)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BoxArticulos)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -59,6 +73,7 @@
         #endregion
 
         private System.Windows.Forms.DataGridView dgvArticulos;
+        private System.Windows.Forms.PictureBox BoxArticulos;
     }
 }
 
