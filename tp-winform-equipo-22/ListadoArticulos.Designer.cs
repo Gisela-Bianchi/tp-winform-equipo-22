@@ -43,6 +43,7 @@
             this.dgvArticulos.RowTemplate.Height = 24;
             this.dgvArticulos.Size = new System.Drawing.Size(862, 350);
             this.dgvArticulos.TabIndex = 0;
+           // this.dgvArticulos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvArticulos_CellContentClick);
             this.dgvArticulos.SelectionChanged += new System.EventHandler(this.dgvArticulos_SelectionChanged);
             // 
             // BoxArticulos

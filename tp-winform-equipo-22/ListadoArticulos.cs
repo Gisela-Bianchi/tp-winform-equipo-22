@@ -47,5 +47,7 @@ namespace tp_winform_equipo_22
                 BoxArticulos.Load("https://img.freepik.com/vector-gratis/ilustracion-vectorial-diseno-grafico_24908-54512.jpg?w=2000");
             }
         }
+
+       
     }
 }

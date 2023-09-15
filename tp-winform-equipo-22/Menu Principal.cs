@@ -24,5 +24,11 @@ namespace tp_winform_equipo_22
             frmArticulos listadoArt= new frmArticulos();
             listadoArt.Show();
         }
+
+        private void btnBusqueda_Click(object sender, EventArgs e)
+        {
+            Busqueda_por_criterios Busqueda= new Busqueda_por_criterios();
+            Busqueda.Show();
+        }
     }
 }
