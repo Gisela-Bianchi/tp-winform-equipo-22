@@ -16,7 +16,7 @@ namespace tp_winform_equipo_22
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmArticulos());
+            Application.Run(new Menu_Principal());
         }
     }
 }
