@@ -36,6 +36,8 @@
             this.textCodigo = new System.Windows.Forms.TextBox();
             this.buttonAceptar = new System.Windows.Forms.Button();
             this.buttonCancelar = new System.Windows.Forms.Button();
+            this.labelPrecio = new System.Windows.Forms.Label();
+            this.textPrecio = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // labelCodigo
@@ -50,7 +52,7 @@
             // labelNombre
             // 
             this.labelNombre.AutoSize = true;
-            this.labelNombre.Location = new System.Drawing.Point(52, 131);
+            this.labelNombre.Location = new System.Drawing.Point(47, 122);
             this.labelNombre.Name = "labelNombre";
             this.labelNombre.Size = new System.Drawing.Size(56, 16);
             this.labelNombre.TabIndex = 1;
@@ -59,7 +61,7 @@
             // labelDescripcion
             // 
             this.labelDescripcion.AutoSize = true;
-            this.labelDescripcion.Location = new System.Drawing.Point(52, 205);
+            this.labelDescripcion.Location = new System.Drawing.Point(36, 186);
             this.labelDescripcion.Name = "labelDescripcion";
             this.labelDescripcion.Size = new System.Drawing.Size(79, 16);
             this.labelDescripcion.TabIndex = 2;
@@ -67,14 +69,14 @@
             // 
             // textDescripcion
             // 
-            this.textDescripcion.Location = new System.Drawing.Point(137, 202);
+            this.textDescripcion.Location = new System.Drawing.Point(137, 186);
             this.textDescripcion.Name = "textDescripcion";
             this.textDescripcion.Size = new System.Drawing.Size(100, 22);
             this.textDescripcion.TabIndex = 3;
             // 
             // textNombre
             // 
-            this.textNombre.Location = new System.Drawing.Point(137, 131);
+            this.textNombre.Location = new System.Drawing.Point(137, 122);
             this.textNombre.Name = "textNombre";
             this.textNombre.Size = new System.Drawing.Size(100, 22);
             this.textNombre.TabIndex = 4;
@@ -106,11 +108,29 @@
             this.buttonCancelar.UseVisualStyleBackColor = true;
             this.buttonCancelar.Click += new System.EventHandler(this.buttonCancelar_Click);
             // 
+            // labelPrecio
+            // 
+            this.labelPrecio.AutoSize = true;
+            this.labelPrecio.Location = new System.Drawing.Point(47, 236);
+            this.labelPrecio.Name = "labelPrecio";
+            this.labelPrecio.Size = new System.Drawing.Size(46, 16);
+            this.labelPrecio.TabIndex = 8;
+            this.labelPrecio.Text = "Precio";
+            // 
+            // textPrecio
+            // 
+            this.textPrecio.Location = new System.Drawing.Point(137, 236);
+            this.textPrecio.Name = "textPrecio";
+            this.textPrecio.Size = new System.Drawing.Size(100, 22);
+            this.textPrecio.TabIndex = 9;
+            // 
             // FrmAltaArticulo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(413, 471);
+            this.Controls.Add(this.textPrecio);
+            this.Controls.Add(this.labelPrecio);
             this.Controls.Add(this.buttonCancelar);
             this.Controls.Add(this.buttonAceptar);
             this.Controls.Add(this.textCodigo);
@@ -137,5 +157,7 @@
         private System.Windows.Forms.TextBox textCodigo;
         private System.Windows.Forms.Button buttonAceptar;
         private System.Windows.Forms.Button buttonCancelar;
+        private System.Windows.Forms.Label labelPrecio;
+        private System.Windows.Forms.TextBox textPrecio;
     }
 }

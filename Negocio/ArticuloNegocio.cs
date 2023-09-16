@@ -146,7 +146,7 @@ namespace Negocio
 
             try
             {
-                datos.SetearConsulta("insert into ARTICULOS (Codigo, Nombre, Descripcion) values('" + articulo.Codigo + "', '" + articulo.Nombre + "', '" + articulo.Descripcion +"')");
+                datos.SetearConsulta("insert into ARTICULOS (Codigo, Nombre, Descripcion) values('" + articulo.Codigo + "', '" + articulo.Nombre + "', '" + articulo.Descripcion +"','"+articulo.Precio+"')");
                 datos.EjecutarAccion();
             }
             catch (Exception)

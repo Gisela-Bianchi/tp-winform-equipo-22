@@ -35,6 +35,7 @@ namespace tp_winform_equipo_22
                 articulo.Codigo = textCodigo.Text;
                 articulo.Nombre = textNombre.Text;
                 articulo.Descripcion = textDescripcion.Text;
+                articulo.Precio = decimal.Parse(textPrecio.Text);
 
                 negocio.AgregarArticulo(articulo);
                 MessageBox.Show("Agregado exitosamente");
