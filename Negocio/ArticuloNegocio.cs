@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data.SqlClient;
 using Dominio;
-using Negocio; 
+using Negocio;
 namespace Negocio
 {
     public class ArticuloNegocio
@@ -14,27 +14,21 @@ namespace Negocio
         public string BuscarUrl(int Id)
         {
 
-            SqlConnection conexion = new SqlConnection();
-            SqlCommand comando = new SqlCommand();
-            SqlDataReader lector;
+            AccesoDatos datos = new AccesoDatos();
 
             try
             {
-                conexion.ConnectionString = "server=.\\SQLEXPRESS;database=CATALOGO_P3_DB;integrated security=true";
-                comando.CommandType = System.Data.CommandType.Text;
-                comando.CommandText = $"select ImagenUrl from IMAGENES where IdArticulo ={Id} ";
+             
+                datos.SetearConsulta($"select ImagenUrl from IMAGENES where IdArticulo ={Id}");
+                datos.EjecutarLectura();
 
-                comando.Connection = conexion;
-
-                conexion.Open();
-                lector = comando.ExecuteReader();
                 string Url = "";
-                while (lector.Read())
+                while (datos.Lector.Read())
                 {
-                    Url = (string)lector["ImagenUrl"];
+                    Url = (string)datos.Lector["ImagenUrl"];
 
                 }
-                conexion.Close();
+                
                 return Url;
             }
             catch (Exception ex)
@@ -42,43 +36,43 @@ namespace Negocio
             {
                 throw ex;
             }
+
+            finally
+            {
+                datos.CerrarConexcion();
+            }
         }
         public List<Articulo> listar()
         {
             List<Articulo> lista = new List<Articulo>();
-            SqlConnection conexion = new SqlConnection();
-            SqlCommand comando = new SqlCommand();
-            SqlDataReader lector;
+            AccesoDatos datos = new AccesoDatos();
 
 
             try
             {
-                conexion.ConnectionString = "server=.\\SQLEXPRESS;database=CATALOGO_P3_DB;integrated security=true";
-                comando.CommandType = System.Data.CommandType.Text;
-                comando.CommandText = "select A.Id,Codigo,Nombre,A.Descripcion,IdMarca,IdCategoria,Precio,C.Descripcion Tipo, M.Descripcion Marca, ImagenUrl from ((ARTICULOS A join MARCAS M on A.IdMarca=M.Id)join CATEGORIAS C on C.Id=A.IdCategoria) join IMAGENES I on I.IdArticulo=A.Id ";
 
-                comando.Connection = conexion;
+                datos.SetearConsulta("select A.Id,Codigo,Nombre,A.Descripcion,IdMarca,IdCategoria,Precio,C.Descripcion Tipo, M.Descripcion Marca, ImagenUrl from ((ARTICULOS A join MARCAS M on A.IdMarca=M.Id)join CATEGORIAS C on C.Id=A.IdCategoria) join IMAGENES I on I.IdArticulo=A.Id ");
+                datos.EjecutarLectura();
 
-                conexion.Open();
-                lector = comando.ExecuteReader();
-              
-                while (lector.Read())
+
+                while (datos.Lector.Read())
                 {
                     Articulo aux = new Articulo();
-                    aux.Id = (int)lector["Id"];
-                    aux.Codigo = (string)lector["Codigo"];
-                    aux.Nombre = (string)lector["Nombre"];
-                    aux.Descripcion = (string)lector["Descripcion"];
-                    aux.Precio = (decimal)lector["Precio"];
+                    aux.Id = (int)datos.Lector["Id"];
+                    aux.Codigo = (string)datos.Lector["Codigo"];
+                    aux.Nombre = (string)datos.Lector["Nombre"];
+                    aux.Descripcion = (string)datos.Lector["Descripcion"];
+                    aux.Precio = (decimal)datos.Lector["Precio"];
                     aux.Tipo = new Categoria();//instancia
-                    aux.Tipo.Id = (int)lector["Id"];
-                    aux.Tipo.Descripcion = (string)lector["Tipo"];
+                    aux.Tipo.Id = (int)datos.Lector["Id"];
+                    aux.Tipo.Descripcion = (string)datos.Lector["Tipo"];
                     aux.Marca = new Marca();
-                    aux.Marca.Descripcion = (string)lector["Marca"];
+                    aux.Marca.Descripcion = (string)datos.Lector["Marca"];
                     aux.ImagenUrl = BuscarUrl(aux.Id);
                     lista.Add(aux);
+
                 }
-                conexion.Close();
+
                 return lista;
             }
             catch (Exception ex)
@@ -87,57 +81,65 @@ namespace Negocio
                 throw ex;
             }
 
+            finally
+            {
+                datos.CerrarConexcion();
+
+            }
         }
-        public List<Articulo> listarUnico(string Nombre)
-        {
-            List<Articulo> lista = new List<Articulo>();
-            SqlConnection conexion = new SqlConnection();
-            SqlCommand comando = new SqlCommand();
-            SqlDataReader lector;
-
-
-            try
+            public List<Articulo> listarUnico(string Nombre)
             {
-                conexion.ConnectionString = "server=.\\SQLEXPRESS;database=CATALOGO_P3_DB;integrated security=true";
-                comando.CommandType = System.Data.CommandType.Text;
-                comando.CommandText = "select A.Id,Codigo,Nombre,A.Descripcion,IdMarca,IdCategoria,Precio,C.Descripcion Tipo," +
+                List<Articulo> lista = new List<Articulo>();
+                AccesoDatos datos = new AccesoDatos();
+
+
+                try
+                {
+
+                    datos.SetearConsulta("select A.Id,Codigo,Nombre,A.Descripcion,IdMarca,IdCategoria,Precio,C.Descripcion Tipo," +
                     " M.Descripcion Marca, ImagenUrl from ((ARTICULOS A join MARCAS M on A.IdMarca=M.Id)join CATEGORIAS C on C.Id=A.IdCategoria) " +
-                    $"join IMAGENES I on I.IdArticulo=A.Id where A.Nombre LIKE '{Nombre}%'";
+                    $"join IMAGENES I on I.IdArticulo=A.Id where A.Nombre LIKE '{Nombre}%'");
+                    datos.EjecutarLectura();
 
-                comando.Connection = conexion;
 
-                conexion.Open();
-                lector = comando.ExecuteReader();
 
-                while (lector.Read())
-               {
-                    Articulo aux = new Articulo();
-                    aux.Id = (int)lector["Id"];
-                    aux.Codigo = (string)lector["Codigo"];
-                    aux.Nombre = (string)lector["Nombre"];
-                    aux.Descripcion = (string)lector["Descripcion"];
-                    aux.Precio = (decimal)lector["Precio"];
-                    aux.Tipo = new Categoria();//instancia
-                    aux.Tipo.Id = (int)lector["Id"];
-                    aux.Tipo.Descripcion = (string)lector["Tipo"];
-                    aux.Marca = new Marca();
-                    aux.Marca.Descripcion = (string)lector["Marca"];
-                    aux.ImagenUrl = BuscarUrl(aux.Id);
-                    lista.Add(aux);
+                    while (datos.Lector.Read())
+                    {
+                        Articulo aux = new Articulo();
+                        aux.Id = (int)datos.Lector["Id"];
+                        aux.Codigo = (string)datos.Lector["Codigo"];
+                        aux.Nombre = (string)datos.Lector["Nombre"];
+                        aux.Descripcion = (string)datos.Lector["Descripcion"];
+                        aux.Precio = (decimal)datos.Lector["Precio"];
+                        aux.Tipo = new Categoria();//instancia
+                        aux.Tipo.Id = (int)datos.Lector["Id"];
+                        aux.Tipo.Descripcion = (string)datos.Lector["Tipo"];
+                        aux.Marca = new Marca();
+                        aux.Marca.Descripcion = (string)datos.Lector["Marca"];
+                        aux.ImagenUrl = BuscarUrl(aux.Id);
+                        lista.Add(aux);
+                    }
+
+
+                    return lista;
                 }
-                conexion.Close();
-                return lista;
-            }
-            catch (Exception ex)
+                catch (Exception ex)
 
-            {
-                throw ex;
-            }
+                {
+                    throw ex;
+                }
 
+                finally
+                {
+                    datos.CerrarConexcion();
+
+                }
+
+
+            }
         }
     }
-}
 
-        
+     
     
 

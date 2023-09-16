@@ -44,5 +44,10 @@ namespace tp_winform_equipo_22
 
 
         }
+
+        private void Busqueda_por_criterios_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

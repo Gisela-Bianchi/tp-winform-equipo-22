@@ -85,6 +85,7 @@
             this.Controls.Add(this.txbNombreArticulo);
             this.Name = "Busqueda_por_criterios";
             this.Text = "Busqueda_por_criterios";
+            this.Load += new System.EventHandler(this.Busqueda_por_criterios_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvArticuloUnico)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
