@@ -29,6 +29,7 @@ namespace tp_winform_equipo_22
 
             Articulo articulo = new Articulo(); 
             ArticuloNegocio negocio = new ArticuloNegocio();
+            frmArticulos art = new frmArticulos();
 
             try
             {
@@ -38,8 +39,13 @@ namespace tp_winform_equipo_22
                 articulo.Precio = decimal.Parse(textPrecio.Text);
 
                 negocio.AgregarArticulo(articulo);
+               
+                
                 MessageBox.Show("Agregado exitosamente");
-                Close();
+                art.Cargar();
+             
+                
+        Close();
 
             }
             catch (Exception ex)

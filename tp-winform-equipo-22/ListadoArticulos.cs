@@ -23,21 +23,7 @@ namespace tp_winform_equipo_22
 
         private void frmArticulos_Load(object sender, EventArgs e)
         {
-            ArticuloNegocio negocio = new ArticuloNegocio();
-            try
-            {
-                //dgvArticulos.DataSource = negocio.listar();
-                ListaArticulo = negocio.listar();
-                dgvArticulos.DataSource = ListaArticulo;
-                dgvArticulos.Columns["ImagenUrl"].Visible=false;
-                BoxArticulos.Load(ListaArticulo[0].ImagenUrl);
-
-            }
-            catch(Exception ex) 
-            {
-                MessageBox.Show(ex.ToString());
-            }
-
+            Cargar();
 
         }
 
@@ -46,6 +32,26 @@ namespace tp_winform_equipo_22
             Articulo Seleccionado = (Articulo)dgvArticulos.CurrentRow.DataBoundItem;
             CargarImagen(Seleccionado.ImagenUrl);
 
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        public void Cargar()
+        {
+            ArticuloNegocio negocio = new ArticuloNegocio();
+            try
+            {
+                //dgvArticulos.DataSource = negocio.listar();
+                ListaArticulo = negocio.listar();
+                dgvArticulos.DataSource = ListaArticulo;
+                dgvArticulos.Columns["ImagenUrl"].Visible = false;
+                BoxArticulos.Load(ListaArticulo[0].ImagenUrl);
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
         }
         private void CargarImagen(string URL)
         {
