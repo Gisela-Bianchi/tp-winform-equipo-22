@@ -39,7 +39,7 @@ namespace Negocio
 
             finally
             {
-                datos.CerrarConexcion();
+                datos.CerrarConexion();
             }
         }
         public List<Articulo> listar()
@@ -83,11 +83,11 @@ namespace Negocio
 
             finally
             {
-                datos.CerrarConexcion();
+                datos.CerrarConexion();
 
             }
         }
-            public List<Articulo> listarUnico(string Nombre)
+        public List<Articulo> listarUnico(string Nombre)
             {
                 List<Articulo> lista = new List<Articulo>();
                 AccesoDatos datos = new AccesoDatos();
@@ -131,7 +131,7 @@ namespace Negocio
 
                 finally
                 {
-                    datos.CerrarConexcion();
+                    datos.CerrarConexion();
 
                 }
 
@@ -139,7 +139,7 @@ namespace Negocio
             }
 
 
-            public void AgregarArticulo (Articulo articulo)
+        public void AgregarArticulo (Articulo articulo)
             {
                 
                 AccesoDatos datos = new AccesoDatos();
@@ -157,7 +157,7 @@ namespace Negocio
 
             finally
             {
-                datos.CerrarConexcion();
+                datos.CerrarConexion();
             }
 
 
