@@ -24,10 +24,19 @@ namespace tp_winform_equipo_22
         private void frmArticulos_Load(object sender, EventArgs e)
         {
             ArticuloNegocio negocio = new ArticuloNegocio();
-            //dgvArticulos.DataSource = negocio.listar();
-            ListaArticulo = negocio.listar();
-            dgvArticulos.DataSource = ListaArticulo;
-            BoxArticulos.Load(ListaArticulo[0].ImagenUrl);
+            try
+            {
+                //dgvArticulos.DataSource = negocio.listar();
+                ListaArticulo = negocio.listar();
+                dgvArticulos.DataSource = ListaArticulo;
+                dgvArticulos.Columns["ImagenUrl"].Visible=false;
+                BoxArticulos.Load(ListaArticulo[0].ImagenUrl);
+
+            }
+            catch(Exception ex) 
+            {
+                MessageBox.Show(ex.ToString());
+            }
 
 
         }

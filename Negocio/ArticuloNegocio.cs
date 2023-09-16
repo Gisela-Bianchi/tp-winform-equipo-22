@@ -25,6 +25,7 @@ namespace Negocio
                 string Url = "";
                 while (datos.Lector.Read())
                 {
+                    if (!(datos.Lector["ImagenUrl"]is DBNull)) 
                     Url = (string)datos.Lector["ImagenUrl"];
 
                 }
@@ -58,16 +59,23 @@ namespace Negocio
                 while (datos.Lector.Read())
                 {
                     Articulo aux = new Articulo();
+                    if (!(datos.Lector["Id"]is DBNull))
                     aux.Id = (int)datos.Lector["Id"];
                     aux.Codigo = (string)datos.Lector["Codigo"];
                     aux.Nombre = (string)datos.Lector["Nombre"];
                     aux.Descripcion = (string)datos.Lector["Descripcion"];
                     aux.Precio = (decimal)datos.Lector["Precio"];
-                    aux.Tipo = new Categoria();//instancia
+
+                    aux.Tipo = new Categoria();
+                    if (!(datos.Lector["Id"]is DBNull)) 
                     aux.Tipo.Id = (int)datos.Lector["Id"];
                     aux.Tipo.Descripcion = (string)datos.Lector["Tipo"];
+
                     aux.Marca = new Marca();
+                    if (!(datos.Lector["Id"] is DBNull))
+                    aux.Marca.Id = (int)datos.Lector["Id"];
                     aux.Marca.Descripcion = (string)datos.Lector["Marca"];
+
                     aux.ImagenUrl = BuscarUrl(aux.Id);
                     lista.Add(aux);
 
@@ -116,6 +124,8 @@ namespace Negocio
                         aux.Tipo.Descripcion = (string)datos.Lector["Tipo"];
                         aux.Marca = new Marca();
                         aux.Marca.Descripcion = (string)datos.Lector["Marca"];
+                 
+                        
                         aux.ImagenUrl = BuscarUrl(aux.Id);
                         lista.Add(aux);
                     }
