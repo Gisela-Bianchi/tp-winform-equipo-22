@@ -137,6 +137,32 @@ namespace Negocio
 
 
             }
+
+
+            public void AgregarArticulo (Articulo articulo)
+            {
+                
+                AccesoDatos datos = new AccesoDatos();
+
+            try
+            {
+                datos.SetearConsulta("insert into ARTICULOS (Codigo, Nombre, Descripcion) values('" + articulo.Codigo + "', '" + articulo.Nombre + "', '" + articulo.Descripcion +"')");
+                datos.EjecutarAccion();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+
+            finally
+            {
+                datos.CerrarConexcion();
+            }
+
+
+
+            }
         }
     }
 

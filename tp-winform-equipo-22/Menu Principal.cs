@@ -30,5 +30,11 @@ namespace tp_winform_equipo_22
             Busqueda_por_criterios Busqueda= new Busqueda_por_criterios();
             Busqueda.Show();
         }
+
+        private void btnAgregar_Click(object sender, EventArgs e)
+        {
+            FrmAltaArticulo alta = new FrmAltaArticulo();
+            alta.ShowDialog();
+        }
     }
 }

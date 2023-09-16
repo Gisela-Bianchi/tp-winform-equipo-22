@@ -52,6 +52,12 @@
     <Compile Include="Busqueda por criterios.Designer.cs">
       <DependentUpon>Busqueda por criterios.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmAltaArticulo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmAltaArticulo.Designer.cs">
+      <DependentUpon>FrmAltaArticulo.cs</DependentUpon>
+    </Compile>
     <Compile Include="ListadoArticulos.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -68,6 +74,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Busqueda por criterios.resx">
       <DependentUpon>Busqueda por criterios.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmAltaArticulo.resx">
+      <DependentUpon>FrmAltaArticulo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ListadoArticulos.resx">
       <DependentUpon>ListadoArticulos.cs</DependentUpon>

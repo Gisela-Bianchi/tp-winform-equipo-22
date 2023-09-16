@@ -30,6 +30,7 @@ namespace Negocio
             comando.CommandText = consulta;
 
         }
+        
         public void EjecutarLectura()
         {
 
@@ -38,6 +39,23 @@ namespace Negocio
             {
                 conexion.Open();
                 lector = comando.ExecuteReader();
+
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
+
+        public void EjecutarAccion()
+        {
+            comando.Connection = conexion;
+
+            try
+            {
+                conexion.Open();
+                comando.ExecuteNonQuery();
 
             }
             catch (Exception ex)
