@@ -79,5 +79,23 @@ namespace tp_winform_equipo_22
             modificar.ShowDialog();
             Cargar();
         }
+
+        private void buttonEliminar_Click(object sender, EventArgs e)
+        {
+            ArticuloNegocio negocio = new ArticuloNegocio();
+            Articulo seleccionado;
+
+            try
+            {
+                seleccionado = (Articulo)dgvArticulos.CurrentRow.DataBoundItem;
+                negocio.EliminarArticulo(seleccionado.Id);
+                Cargar();
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.ToString());
+            }
+        }
     }
 }
