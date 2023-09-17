@@ -43,13 +43,17 @@
             this.labelImagen = new System.Windows.Forms.Label();
             this.textBoxImagen = new System.Windows.Forms.TextBox();
             this.pictureBoxArticulo = new System.Windows.Forms.PictureBox();
+            this.lblIdMarca = new System.Windows.Forms.Label();
+            this.lblIdCategoria = new System.Windows.Forms.Label();
+            this.cboIdMarca = new System.Windows.Forms.ComboBox();
+            this.cboIdCategoria = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxArticulo)).BeginInit();
             this.SuspendLayout();
             // 
             // labelCodigo
             // 
             this.labelCodigo.AutoSize = true;
-            this.labelCodigo.Location = new System.Drawing.Point(76, 43);
+            this.labelCodigo.Location = new System.Drawing.Point(116, 43);
             this.labelCodigo.Name = "labelCodigo";
             this.labelCodigo.Size = new System.Drawing.Size(51, 16);
             this.labelCodigo.TabIndex = 0;
@@ -58,7 +62,7 @@
             // labelNombre
             // 
             this.labelNombre.AutoSize = true;
-            this.labelNombre.Location = new System.Drawing.Point(76, 95);
+            this.labelNombre.Location = new System.Drawing.Point(111, 92);
             this.labelNombre.Name = "labelNombre";
             this.labelNombre.Size = new System.Drawing.Size(56, 16);
             this.labelNombre.TabIndex = 1;
@@ -67,7 +71,7 @@
             // labelDescripcion
             // 
             this.labelDescripcion.AutoSize = true;
-            this.labelDescripcion.Location = new System.Drawing.Point(70, 140);
+            this.labelDescripcion.Location = new System.Drawing.Point(92, 140);
             this.labelDescripcion.Name = "labelDescripcion";
             this.labelDescripcion.Size = new System.Drawing.Size(79, 16);
             this.labelDescripcion.TabIndex = 2;
@@ -77,26 +81,26 @@
             // 
             this.textDescripcion.Location = new System.Drawing.Point(177, 140);
             this.textDescripcion.Name = "textDescripcion";
-            this.textDescripcion.Size = new System.Drawing.Size(100, 22);
+            this.textDescripcion.Size = new System.Drawing.Size(121, 22);
             this.textDescripcion.TabIndex = 2;
             // 
             // textNombre
             // 
             this.textNombre.Location = new System.Drawing.Point(177, 92);
             this.textNombre.Name = "textNombre";
-            this.textNombre.Size = new System.Drawing.Size(100, 22);
+            this.textNombre.Size = new System.Drawing.Size(121, 22);
             this.textNombre.TabIndex = 1;
             // 
             // textCodigo
             // 
             this.textCodigo.Location = new System.Drawing.Point(177, 43);
             this.textCodigo.Name = "textCodigo";
-            this.textCodigo.Size = new System.Drawing.Size(100, 22);
+            this.textCodigo.Size = new System.Drawing.Size(121, 22);
             this.textCodigo.TabIndex = 0;
             // 
             // buttonAceptar
             // 
-            this.buttonAceptar.Location = new System.Drawing.Point(50, 352);
+            this.buttonAceptar.Location = new System.Drawing.Point(63, 352);
             this.buttonAceptar.Name = "buttonAceptar";
             this.buttonAceptar.Size = new System.Drawing.Size(92, 39);
             this.buttonAceptar.TabIndex = 5;
@@ -106,7 +110,7 @@
             // 
             // buttonCancelar
             // 
-            this.buttonCancelar.Location = new System.Drawing.Point(180, 352);
+            this.buttonCancelar.Location = new System.Drawing.Point(201, 352);
             this.buttonCancelar.Name = "buttonCancelar";
             this.buttonCancelar.Size = new System.Drawing.Size(97, 39);
             this.buttonCancelar.TabIndex = 6;
@@ -117,7 +121,7 @@
             // labelPrecio
             // 
             this.labelPrecio.AutoSize = true;
-            this.labelPrecio.Location = new System.Drawing.Point(76, 185);
+            this.labelPrecio.Location = new System.Drawing.Point(112, 185);
             this.labelPrecio.Name = "labelPrecio";
             this.labelPrecio.Size = new System.Drawing.Size(46, 16);
             this.labelPrecio.TabIndex = 8;
@@ -143,13 +147,13 @@
             // 
             this.textPrecio.Location = new System.Drawing.Point(177, 185);
             this.textPrecio.Name = "textPrecio";
-            this.textPrecio.Size = new System.Drawing.Size(100, 22);
+            this.textPrecio.Size = new System.Drawing.Size(121, 22);
             this.textPrecio.TabIndex = 3;
             // 
             // labelImagen
             // 
             this.labelImagen.AutoSize = true;
-            this.labelImagen.Location = new System.Drawing.Point(70, 247);
+            this.labelImagen.Location = new System.Drawing.Point(92, 294);
             this.labelImagen.Name = "labelImagen";
             this.labelImagen.Size = new System.Drawing.Size(72, 16);
             this.labelImagen.TabIndex = 14;
@@ -157,9 +161,9 @@
             // 
             // textBoxImagen
             // 
-            this.textBoxImagen.Location = new System.Drawing.Point(177, 241);
+            this.textBoxImagen.Location = new System.Drawing.Point(177, 294);
             this.textBoxImagen.Name = "textBoxImagen";
-            this.textBoxImagen.Size = new System.Drawing.Size(100, 22);
+            this.textBoxImagen.Size = new System.Drawing.Size(121, 22);
             this.textBoxImagen.TabIndex = 4;
             this.textBoxImagen.Leave += new System.EventHandler(this.textBoxImagen_Leave);
             // 
@@ -172,11 +176,52 @@
             this.pictureBoxArticulo.TabIndex = 16;
             this.pictureBoxArticulo.TabStop = false;
             // 
+            // lblIdMarca
+            // 
+            this.lblIdMarca.AutoSize = true;
+            this.lblIdMarca.Location = new System.Drawing.Point(112, 219);
+            this.lblIdMarca.Name = "lblIdMarca";
+            this.lblIdMarca.Size = new System.Drawing.Size(59, 16);
+            this.lblIdMarca.TabIndex = 17;
+            this.lblIdMarca.Text = "Id Marca";
+            // 
+            // lblIdCategoria
+            // 
+            this.lblIdCategoria.AutoSize = true;
+            this.lblIdCategoria.Location = new System.Drawing.Point(87, 256);
+            this.lblIdCategoria.Name = "lblIdCategoria";
+            this.lblIdCategoria.Size = new System.Drawing.Size(80, 16);
+            this.lblIdCategoria.TabIndex = 18;
+            this.lblIdCategoria.Text = "Id Categoria";
+            // 
+            // cboIdMarca
+            // 
+            this.cboIdMarca.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboIdMarca.FormattingEnabled = true;
+            this.cboIdMarca.Location = new System.Drawing.Point(177, 219);
+            this.cboIdMarca.Name = "cboIdMarca";
+            this.cboIdMarca.Size = new System.Drawing.Size(121, 24);
+            this.cboIdMarca.TabIndex = 19;
+            // 
+            // cboIdCategoria
+            // 
+            this.cboIdCategoria.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboIdCategoria.FormattingEnabled = true;
+            this.cboIdCategoria.Location = new System.Drawing.Point(177, 256);
+            this.cboIdCategoria.Name = "cboIdCategoria";
+            this.cboIdCategoria.Size = new System.Drawing.Size(121, 24);
+            this.cboIdCategoria.TabIndex = 20;
+            // 
             // FrmAltaArticulo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.ClientSize = new System.Drawing.Size(697, 505);
+            this.Controls.Add(this.cboIdCategoria);
+            this.Controls.Add(this.cboIdMarca);
+            this.Controls.Add(this.lblIdCategoria);
+            this.Controls.Add(this.lblIdMarca);
             this.Controls.Add(this.pictureBoxArticulo);
             this.Controls.Add(this.textBoxImagen);
             this.Controls.Add(this.labelImagen);
@@ -219,5 +264,9 @@
         private System.Windows.Forms.Label labelImagen;
         private System.Windows.Forms.TextBox textBoxImagen;
         private System.Windows.Forms.PictureBox pictureBoxArticulo;
+        private System.Windows.Forms.Label lblIdMarca;
+        private System.Windows.Forms.Label lblIdCategoria;
+        private System.Windows.Forms.ComboBox cboIdMarca;
+        private System.Windows.Forms.ComboBox cboIdCategoria;
     }
 }

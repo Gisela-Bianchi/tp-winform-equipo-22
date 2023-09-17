@@ -133,6 +133,7 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Menu_Principal";
             this.Text = "Menu_Principal";
+            this.Load += new System.EventHandler(this.Menu_Principal_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

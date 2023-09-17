@@ -18,18 +18,18 @@ namespace Negocio
 
             try
             {
-             
+
                 datos.SetearConsulta($"select ImagenUrl from IMAGENES where IdArticulo ={Id}");
                 datos.EjecutarLectura();
 
                 string Url = "";
                 while (datos.Lector.Read())
                 {
-                    if (!(datos.Lector["ImagenUrl"]is DBNull)) 
-                    Url = (string)datos.Lector["ImagenUrl"];
+                    if (!(datos.Lector["ImagenUrl"] is DBNull))
+                        Url = (string)datos.Lector["ImagenUrl"];
 
                 }
-                
+
                 return Url;
             }
             catch (Exception ex)
@@ -59,21 +59,21 @@ namespace Negocio
                 while (datos.Lector.Read())
                 {
                     Articulo aux = new Articulo();
-                    if (!(datos.Lector["Id"]is DBNull))
-                    aux.Id = (int)datos.Lector["Id"];
+                    if (!(datos.Lector["Id"] is DBNull))
+                        aux.Id = (int)datos.Lector["Id"];
                     aux.Codigo = (string)datos.Lector["Codigo"];
                     aux.Nombre = (string)datos.Lector["Nombre"];
                     aux.Descripcion = (string)datos.Lector["Descripcion"];
                     aux.Precio = (decimal)datos.Lector["Precio"];
 
                     aux.Tipo = new Categoria();
-                    if (!(datos.Lector["Id"]is DBNull)) 
-                    aux.Tipo.Id = (int)datos.Lector["Id"];
+                    if (!(datos.Lector["Id"] is DBNull))
+                        aux.Tipo.Id = (int)datos.Lector["Id"];
                     aux.Tipo.Descripcion = (string)datos.Lector["Tipo"];
 
                     aux.Marca = new Marca();
                     if (!(datos.Lector["Id"] is DBNull))
-                    aux.Marca.Id = (int)datos.Lector["Id"];
+                        aux.Marca.Id = (int)datos.Lector["Id"];
                     aux.Marca.Descripcion = (string)datos.Lector["Marca"];
 
                     aux.ImagenUrl = BuscarUrl(aux.Id);
@@ -96,67 +96,70 @@ namespace Negocio
             }
         }
         public List<Articulo> listarUnico(string Nombre)
+        {
+            List<Articulo> lista = new List<Articulo>();
+            AccesoDatos datos = new AccesoDatos();
+
+
+            try
             {
-                List<Articulo> lista = new List<Articulo>();
-                AccesoDatos datos = new AccesoDatos();
+
+                datos.SetearConsulta("select A.Id,Codigo,Nombre,A.Descripcion,IdMarca,IdCategoria,Precio,C.Descripcion Tipo," +
+                " M.Descripcion Marca, ImagenUrl from ((ARTICULOS A join MARCAS M on A.IdMarca=M.Id)join CATEGORIAS C on C.Id=A.IdCategoria) " +
+                $"join IMAGENES I on I.IdArticulo=A.Id where A.Nombre LIKE '{Nombre}%'");
+                datos.EjecutarLectura();
 
 
-                try
+
+                while (datos.Lector.Read())
                 {
-
-                    datos.SetearConsulta("select A.Id,Codigo,Nombre,A.Descripcion,IdMarca,IdCategoria,Precio,C.Descripcion Tipo," +
-                    " M.Descripcion Marca, ImagenUrl from ((ARTICULOS A join MARCAS M on A.IdMarca=M.Id)join CATEGORIAS C on C.Id=A.IdCategoria) " +
-                    $"join IMAGENES I on I.IdArticulo=A.Id where A.Nombre LIKE '{Nombre}%'");
-                    datos.EjecutarLectura();
-
-
-
-                    while (datos.Lector.Read())
-                    {
-                        Articulo aux = new Articulo();
-                        aux.Id = (int)datos.Lector["Id"];
-                        aux.Codigo = (string)datos.Lector["Codigo"];
-                        aux.Nombre = (string)datos.Lector["Nombre"];
-                        aux.Descripcion = (string)datos.Lector["Descripcion"];
-                        aux.Precio = (decimal)datos.Lector["Precio"];
-                        aux.Tipo = new Categoria();//instancia
-                        aux.Tipo.Id = (int)datos.Lector["Id"];
-                        aux.Tipo.Descripcion = (string)datos.Lector["Tipo"];
-                        aux.Marca = new Marca();
-                        aux.Marca.Descripcion = (string)datos.Lector["Marca"];
-                 
-                        
-                        aux.ImagenUrl = BuscarUrl(aux.Id);
-                        lista.Add(aux);
-                    }
+                    Articulo aux = new Articulo();
+                    aux.Id = (int)datos.Lector["Id"];
+                    aux.Codigo = (string)datos.Lector["Codigo"];
+                    aux.Nombre = (string)datos.Lector["Nombre"];
+                    aux.Descripcion = (string)datos.Lector["Descripcion"];
+                    aux.Precio = (decimal)datos.Lector["Precio"];
+                    aux.Tipo = new Categoria();//instancia
+                    aux.Tipo.Id = (int)datos.Lector["Id"];
+                    aux.Tipo.Descripcion = (string)datos.Lector["Tipo"];
+                    aux.Marca = new Marca();
+                    aux.Marca.Descripcion = (string)datos.Lector["Marca"];
 
 
-                    return lista;
-                }
-                catch (Exception ex)
-
-                {
-                    throw ex;
+                    aux.ImagenUrl = BuscarUrl(aux.Id);
+                    lista.Add(aux);
                 }
 
-                finally
-                {
-                    datos.CerrarConexion();
 
-                }
+                return lista;
+            }
+            catch (Exception ex)
 
+            {
+                throw ex;
+            }
+
+            finally
+            {
+                datos.CerrarConexion();
 
             }
 
 
-        public void AgregarArticulo (Articulo articulo)
-            {
-                
-                AccesoDatos datos = new AccesoDatos();
+        }
+
+
+        public void AgregarArticulo(Articulo articulo)
+        {
+
+            AccesoDatos datos = new AccesoDatos();
 
             try
             {
-                datos.SetearConsulta("insert into ARTICULOS (Codigo, Nombre, Descripcion) values('" + articulo.Codigo + "', '" + articulo.Nombre + "', '" + articulo.Descripcion +"','"+articulo.Precio+"')");
+                datos.SetearConsulta("insert into ARTICULOS (Codigo, Nombre, Descripcion,Precio, IdMarca, IdCategoria) values('" + articulo.Codigo + "', '" + articulo.Nombre + "', '" + articulo.Descripcion + "','" + articulo.Precio + "',@IdMarca,@IdCategoria)");
+                datos.setearParametro("@IdMarca", articulo.Marca.Id);
+                datos.setearParametro("@IdCategoria", articulo.Tipo.Id);
+
                 datos.EjecutarAccion();
             }
             catch (Exception)
@@ -169,12 +172,11 @@ namespace Negocio
             {
                 datos.CerrarConexion();
             }
-
-
-
-            }
         }
+
+
     }
+}
 
      
     

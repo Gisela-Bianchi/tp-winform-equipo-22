@@ -36,5 +36,16 @@ namespace tp_winform_equipo_22
             FrmAltaArticulo alta = new FrmAltaArticulo();
             alta.ShowDialog();
         }
+        /*private void btnModificar_Click(object sender, EventArgs e)
+        {
+            FrmAltaArticulo modificar = new FrmAltaArticulo();
+            modificar.ShowDialog();
+            //cargar();
+        }*/
+
+        private void Menu_Principal_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

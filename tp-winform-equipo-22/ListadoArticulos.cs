@@ -41,7 +41,7 @@ namespace tp_winform_equipo_22
             ArticuloNegocio negocio = new ArticuloNegocio();
             try
             {
-                //dgvArticulos.DataSource = negocio.listar();
+                dgvArticulos.DataSource = negocio.listar();
                 ListaArticulo = negocio.listar();
                 dgvArticulos.DataSource = ListaArticulo;
                 dgvArticulos.Columns["ImagenUrl"].Visible = false;
@@ -63,6 +63,10 @@ namespace tp_winform_equipo_22
             }
         }
 
-       
+        private void btnAgregar_Click(object sender, EventArgs e)
+        {
+           frmAlta alta= new frmAlta();
+            alta.ShowDialog();
+        }
     }
 }

@@ -20,7 +20,7 @@ namespace Negocio
 
         public AccesoDatos()
         {
-            conexion= new SqlConnection("Data Source = ARII; Initial Catalog = CATALOGO_P3_DB; Integrated Security = True");
+            conexion= new SqlConnection("server=.\\SQLEXPRESS;database=CATALOGO_P3_DB;integrated security=true");
             comando = new SqlCommand();
         }
 
@@ -65,6 +65,10 @@ namespace Negocio
             }
         }
 
+        public void setearParametro(string nombre,object valor)
+        {
+            comando.Parameters.AddWithValue(nombre, valor);
+        }
         public void CerrarConexion()
         {
             if(lector != null)
