@@ -45,6 +45,7 @@ namespace tp_winform_equipo_22
                 ListaArticulo = negocio.listar();
                 dgvArticulos.DataSource = ListaArticulo;
                 dgvArticulos.Columns["ImagenUrl"].Visible = false;
+                dgvArticulos.Columns["Id"].Visible = false;
                 BoxArticulos.Load(ListaArticulo[0].ImagenUrl);
 
             }

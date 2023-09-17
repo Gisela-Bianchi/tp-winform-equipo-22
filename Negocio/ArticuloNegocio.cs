@@ -183,14 +183,17 @@ namespace Negocio
 
             try
             {
-                datos.SetearConsulta("update ARTICULOS set Codigo=@codigo, Nombre=@nombre, Descripcion=@descripcion,Precio=@precio, IdMarca=@idmarca, IdCategoria=@idcategoria  where Id=@id");
+               
+                datos.SetearConsulta("update ARTICULOS set Codigo=@codigo, Nombre=@nombre, Descripcion=@descripcion,Precio=@precio, IdMarca=@idmarca , IdCategoria=@idcategoria where Id=@id");
+      
                 datos.setearParametro("@codigo", articulo.Codigo);
                 datos.setearParametro("@nombre", articulo.Nombre);
                 datos.setearParametro("@descripcion", articulo.Descripcion);
                 datos.setearParametro("@precio", articulo.Precio);             
                 datos.setearParametro("@IdMarca", articulo.Marca.Id);
                 datos.setearParametro("@IdCategoria", articulo.Tipo.Id);
-
+                datos.setearParametro("@id", articulo.Id);
+            
                 datos.EjecutarAccion();
             }
             catch (Exception)

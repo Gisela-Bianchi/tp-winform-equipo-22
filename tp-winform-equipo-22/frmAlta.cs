@@ -35,14 +35,15 @@ namespace tp_winform_equipo_22
 
         private void btnAceptar_Click(object sender, EventArgs e)
         {
-            //Articulo articulo = new Articulo();
+           
             ArticuloNegocio negocio = new ArticuloNegocio();
             frmArticulos art = new frmArticulos();
             Marca marca = new Marca();
             Categoria categoria = new Categoria();
 
             try
-            {   if(articulo==null)
+            {   
+                if(articulo==null)
                    articulo = new Articulo();
 
                 articulo.Codigo = txtCodigo.Text;
@@ -51,15 +52,18 @@ namespace tp_winform_equipo_22
                 articulo.Precio = decimal.Parse(txtPrecio.Text);
                 articulo.Marca = (Marca)cboIdMarca.SelectedItem;
                 articulo.Tipo = (Categoria)cboIdCategoria.SelectedItem;
-               
-             
-                negocio.AgregarArticulo(articulo);
-                MessageBox.Show("Agregado exitosamente");
 
-                negocio.ModificarArticulo(articulo);
-                MessageBox.Show("Modificado exitosamente");
-                //art.Cargar();
-
+                if (articulo.Id != 0)
+                {
+                    negocio.ModificarArticulo(articulo);
+                    MessageBox.Show("Modificado exitosamente");
+                    art.Cargar();
+                }
+                else
+                {
+                    negocio.AgregarArticulo(articulo);
+                    MessageBox.Show("Agregado exitosamente");
+                }
 
                 Close();
 
@@ -96,8 +100,8 @@ namespace tp_winform_equipo_22
                     txtNombre.Text = articulo.Nombre;
                     txtDescripcion.Text = articulo.Descripcion;
                     txtPrecio.Text = articulo.Precio.ToString();
-                    textBoxImagen.Text = articulo.ImagenUrl.ToString();
-                    cargarImagen(articulo.ImagenUrl.ToString());
+                    textBoxImagen.Text = articulo.ImagenUrl;
+                    cargarImagen(articulo.ImagenUrl);
                     cboIdCategoria.SelectedValue = articulo.Tipo.Id;
                     cboIdMarca.SelectedValue = articulo.Marca.Id;
 

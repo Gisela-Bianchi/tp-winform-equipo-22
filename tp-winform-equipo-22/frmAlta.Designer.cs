@@ -147,18 +147,18 @@
             this.lblIdMarca.AutoSize = true;
             this.lblIdMarca.Location = new System.Drawing.Point(115, 207);
             this.lblIdMarca.Name = "lblIdMarca";
-            this.lblIdMarca.Size = new System.Drawing.Size(62, 16);
+            this.lblIdMarca.Size = new System.Drawing.Size(51, 16);
             this.lblIdMarca.TabIndex = 13;
-            this.lblIdMarca.Text = "Id Marca:";
+            this.lblIdMarca.Text = " Marca:";
             // 
             // lblIdCategoria
             // 
             this.lblIdCategoria.AutoSize = true;
             this.lblIdCategoria.Location = new System.Drawing.Point(94, 237);
             this.lblIdCategoria.Name = "lblIdCategoria";
-            this.lblIdCategoria.Size = new System.Drawing.Size(83, 16);
+            this.lblIdCategoria.Size = new System.Drawing.Size(69, 16);
             this.lblIdCategoria.TabIndex = 14;
-            this.lblIdCategoria.Text = "Id Categoria:";
+            this.lblIdCategoria.Text = "Categoria:";
             // 
             // cboIdMarca
             // 
