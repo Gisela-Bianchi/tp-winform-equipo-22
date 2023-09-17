@@ -67,6 +67,17 @@ namespace tp_winform_equipo_22
         {
            frmAlta alta= new frmAlta();
             alta.ShowDialog();
+            Cargar();
+        }
+
+        private void btnModificar_Click(object sender, EventArgs e)
+        {
+            Articulo seleccionado;
+            seleccionado = (Articulo)dgvArticulos.CurrentRow.DataBoundItem;
+
+            frmAlta modificar = new frmAlta(seleccionado);
+            modificar.ShowDialog();
+            Cargar();
         }
     }
 }

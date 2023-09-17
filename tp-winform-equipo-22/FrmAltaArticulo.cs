@@ -93,6 +93,6 @@ namespace tp_winform_equipo_22
             }
         }
 
-   
+    
     }
 }

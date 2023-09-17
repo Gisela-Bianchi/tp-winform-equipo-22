@@ -76,6 +76,9 @@ namespace Negocio
                         aux.Marca.Id = (int)datos.Lector["Id"];
                     aux.Marca.Descripcion = (string)datos.Lector["Marca"];
 
+                   // aux.Imagen=new Imagen();
+                   // aux.Imagen.Id = (int)datos.Lector["Id"];
+                   // aux.Imagen.IdArticulo = (int)datos.Lector["Id Articulos"];
                     aux.ImagenUrl = BuscarUrl(aux.Id);
                     lista.Add(aux);
 
@@ -173,7 +176,34 @@ namespace Negocio
                 datos.CerrarConexion();
             }
         }
+        public void ModificarArticulo(Articulo articulo)
+        {
 
+            AccesoDatos datos = new AccesoDatos();
+
+            try
+            {
+                datos.SetearConsulta("update ARTICULOS set Codigo=@codigo, Nombre=@nombre, Descripcion=@descripcion,Precio=@precio, IdMarca=@idmarca, IdCategoria=@idcategoria  where Id=@id");
+                datos.setearParametro("@codigo", articulo.Codigo);
+                datos.setearParametro("@nombre", articulo.Nombre);
+                datos.setearParametro("@descripcion", articulo.Descripcion);
+                datos.setearParametro("@precio", articulo.Precio);             
+                datos.setearParametro("@IdMarca", articulo.Marca.Id);
+                datos.setearParametro("@IdCategoria", articulo.Tipo.Id);
+
+                datos.EjecutarAccion();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+
+            finally
+            {
+                datos.CerrarConexion();
+            }
+        }
 
     }
 }
