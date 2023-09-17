@@ -54,5 +54,29 @@ namespace tp_winform_equipo_22
                 MessageBox.Show(ex.ToString());
             }
         }
+
+        private void FrmAltaArticulo_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBoxImagen_Leave(object sender, EventArgs e)
+        {
+            cargarImagen(textBoxImagen.Text);
+        }
+
+        private void cargarImagen (string imagen)
+        {
+
+            try
+            {
+                pictureBoxArticulo.Load(imagen);
+            }
+            catch (Exception)
+            {
+
+                pictureBoxArticulo.Load("https://instalacionesherman.com/wp-content/uploads/2018/04/Imagen_por_defecto-600x450.png");
+            }
+        }
     }
 }
