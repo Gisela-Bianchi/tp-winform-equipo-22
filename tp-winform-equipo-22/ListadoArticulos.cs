@@ -124,5 +124,15 @@ namespace tp_winform_equipo_22
             dgvArticulos.DataSource = listaFiltrada;
             ocultarColumnas();
         }
+
+        private void buttonVerDetalle_Click(object sender, EventArgs e)
+        {
+            Articulo seleccionado;
+            seleccionado = (Articulo)dgvArticulos.CurrentRow.DataBoundItem;
+
+            FrmVerDetalle verDetalle = new FrmVerDetalle(seleccionado);
+            verDetalle.ShowDialog();
+            Cargar();
+        }
     }
 }

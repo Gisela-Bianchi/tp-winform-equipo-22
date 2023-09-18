@@ -36,6 +36,7 @@
             this.lblFiltro = new System.Windows.Forms.Label();
             this.txtFiltro = new System.Windows.Forms.TextBox();
             this.btnBuscar = new System.Windows.Forms.Button();
+            this.buttonVerDetalle = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvArticulos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.BoxArticulos)).BeginInit();
             this.SuspendLayout();
@@ -119,11 +120,22 @@
             this.btnBuscar.UseVisualStyleBackColor = true;
             this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
+            // buttonVerDetalle
+            // 
+            this.buttonVerDetalle.Location = new System.Drawing.Point(607, 455);
+            this.buttonVerDetalle.Name = "buttonVerDetalle";
+            this.buttonVerDetalle.Size = new System.Drawing.Size(131, 34);
+            this.buttonVerDetalle.TabIndex = 8;
+            this.buttonVerDetalle.Text = "Ver detalles";
+            this.buttonVerDetalle.UseVisualStyleBackColor = true;
+            this.buttonVerDetalle.Click += new System.EventHandler(this.buttonVerDetalle_Click);
+            // 
             // frmArticulos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1288, 517);
+            this.Controls.Add(this.buttonVerDetalle);
             this.Controls.Add(this.btnBuscar);
             this.Controls.Add(this.txtFiltro);
             this.Controls.Add(this.lblFiltro);
@@ -153,6 +165,7 @@
         private System.Windows.Forms.Label lblFiltro;
         private System.Windows.Forms.TextBox txtFiltro;
         private System.Windows.Forms.Button btnBuscar;
+        private System.Windows.Forms.Button buttonVerDetalle;
     }
 }
 
