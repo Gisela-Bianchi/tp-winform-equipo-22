@@ -31,7 +31,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.btnListado = new System.Windows.Forms.Button();
             this.btnAgregar = new System.Windows.Forms.Button();
-            this.btnBusqueda = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -60,7 +59,7 @@
             // btnAgregar
             // 
             this.btnAgregar.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAgregar.Location = new System.Drawing.Point(339, 380);
+            this.btnAgregar.Location = new System.Drawing.Point(339, 262);
             this.btnAgregar.Margin = new System.Windows.Forms.Padding(4);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(317, 54);
@@ -69,25 +68,12 @@
             this.btnAgregar.UseVisualStyleBackColor = true;
             this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
             // 
-            // btnBusqueda
-            // 
-            this.btnBusqueda.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBusqueda.Location = new System.Drawing.Point(339, 270);
-            this.btnBusqueda.Margin = new System.Windows.Forms.Padding(4);
-            this.btnBusqueda.Name = "btnBusqueda";
-            this.btnBusqueda.Size = new System.Drawing.Size(317, 54);
-            this.btnBusqueda.TabIndex = 6;
-            this.btnBusqueda.Text = "Búsqueda de artículos ";
-            this.btnBusqueda.UseVisualStyleBackColor = true;
-            this.btnBusqueda.Click += new System.EventHandler(this.btnBusqueda_Click);
-            // 
             // Menu_Principal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.ClientSize = new System.Drawing.Size(1023, 499);
-            this.Controls.Add(this.btnBusqueda);
             this.Controls.Add(this.btnAgregar);
             this.Controls.Add(this.btnListado);
             this.Controls.Add(this.label1);
@@ -105,6 +91,5 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnListado;
         private System.Windows.Forms.Button btnAgregar;
-        private System.Windows.Forms.Button btnBusqueda;
     }
 }
